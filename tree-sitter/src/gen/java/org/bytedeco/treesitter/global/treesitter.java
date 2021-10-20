@@ -1156,4 +1156,11 @@ public static native @Cast("uint32_t") int ts_language_version(@Const TSLanguage
 // #endif  // TREE_SITTER_API_H_
 
 
+// Parsed from <tree_sitter/cpp.h>
+
+// #include "api.h"
+
+public static native TSLanguage tree_sitter_cpp();
+
+
 }
