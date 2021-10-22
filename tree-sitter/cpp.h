@@ -1,3 +1,3 @@
 #include "api.h"
 
-TSLanguage *tree_sitter_cpp();
+extern "C" TSLanguage *tree_sitter_cpp();
