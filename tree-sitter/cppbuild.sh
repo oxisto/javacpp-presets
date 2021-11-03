@@ -22,7 +22,8 @@ cd tree-sitter-$TREE_SITTER_VERSION
 case $PLATFORM in
     linux-x86_64)
         export PREFIX=..
-        export CC="gcc -m64 -fPIC"
+        export CFLAGS="-m64 -fPIC"
+        export LDFLAGS=""
         make -j $MAKEJ
         make install
         cd ../tree-sitter-cpp-0.19.0/src
@@ -33,7 +34,7 @@ case $PLATFORM in
 	    export SOEXTVER_MAJOR=so.$SONAME_MAJOR
 	    export SOEXTVER=so.$SONAME_MAJOR.$SONAME_MINOR
         export LIBDIR=$PREFIX/lib
-        clang++ $CFLAGS $LDFLAGS -I. scanner.cc parser.c -dynamiclib -Wl,-soname,$LIBDIR/libtree-sitter-cpp.so.$SONAME_MAJOR -o libtree-sitter-cpp.$SOEXTVER
+        clang++ $CFLAGS $LDFLAGS -I. scanner.cc parser.c -shared -Wl,-soname,$LIBDIR/libtree-sitter-cpp.so.$SONAME_MAJOR -o libtree-sitter-cpp.$SOEXTVER
         cp libtree-sitter-cpp.$SOEXTVER $LIBDIR
         cd $LIBDIR
         ln -sf libtree-sitter-cpp.$SOEXTVER libtree-sitter-cpp.$SOEXT
