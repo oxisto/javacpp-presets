@@ -592,6 +592,7 @@
         <module>arrow</module>
         <module>hdf5</module>
         <module>hyperscan</module>
+        <module>lz4</module>
         <module>mkl</module>
         <module>mkl-dnn</module>
         <module>dnnl</module>
@@ -1291,6 +1292,7 @@
         <module>flandmark</module>
         <module>arrow</module>
         <module>hdf5</module>
+        <module>lz4</module>
         <module>mkl</module>
         <module>openblas</module>
         <module>arpack-ng</module>
@@ -1360,6 +1362,7 @@
         <module>arrow</module>
         <module>hdf5</module>
         <module>hyperscan</module>
+        <module>lz4</module>
         <module>mkl</module>
         <module>mkl-dnn</module>
         <module>dnnl</module>
@@ -1416,7 +1419,7 @@
         <javacpp.platform.linux-ppc64le></javacpp.platform.linux-ppc64le>
         <javacpp.platform.linux-x86></javacpp.platform.linux-x86>
         <javacpp.platform.linux-x86_64>${javacpp.platform}${javacpp.platform.extension}</javacpp.platform.linux-x86_64>
-        <javacpp.platform.macosx-arm64></javacpp.platform.macosx-arm64>        
+        <javacpp.platform.macosx-arm64></javacpp.platform.macosx-arm64>
         <javacpp.platform.macosx-x86_64></javacpp.platform.macosx-x86_64>
         <javacpp.platform.windows-x86></javacpp.platform.windows-x86>
         <javacpp.platform.windows-x86_64></javacpp.platform.windows-x86_64>
@@ -1432,7 +1435,7 @@
         </property>
       </activation>
       <modules>
-        <module>tree-sitter</module>        
+        <module>tree-sitter</module>
         <module>llvm</module>
       </modules>
       <properties>
@@ -1478,6 +1481,7 @@
         <module>arrow</module>
         <module>hdf5</module>
         <module>hyperscan</module>
+        <module>lz4</module>
         <module>mkl</module>
         <module>mkl-dnn</module>
         <module>dnnl</module>
@@ -1561,6 +1565,7 @@
         <module>flandmark</module>
         <module>arrow</module>
         <module>hdf5</module>
+        <module>lz4</module>
         <module>mkl</module>
         <module>openblas</module>
         <module>arpack-ng</module>
@@ -1626,6 +1631,7 @@
         <module>arrow</module>
         <module>hdf5</module>
         <module>hyperscan</module>
+        <module>lz4</module>
         <module>mkl</module>
         <module>mkl-dnn</module>
         <module>dnnl</module>
@@ -1849,7 +1855,7 @@
       <properties>
         <javacpp.platform.macosx-arm64>macosx-arm64${javacpp.platform.extension}</javacpp.platform.macosx-arm64>
       </properties>
-    </profile>    
+    </profile>
 
     <profile>
       <id>javacpp.platform.macosx-x86_64-true</id>
@@ -2001,6 +2007,45 @@
       </activation>
       <properties>
         <javacpp.platform.linux-x86_64>linux-x86_64${javacpp.platform.extension}</javacpp.platform.linux-x86_64>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>javacpp.platform.custom-macosx-aarch64</id>
+      <activation>
+        <property>
+          <name>javacpp.platform.host</name>
+        </property>
+        <os><name>mac os x</name><arch>aarch64</arch></os>
+      </activation>
+      <properties>
+        <javacpp.platform.macosx-arm64>macosx-arm64${javacpp.platform.extension}</javacpp.platform.macosx-arm64>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>javacpp.platform.custom-macosx-armv8</id>
+      <activation>
+        <property>
+          <name>javacpp.platform.host</name>
+        </property>
+        <os><name>mac os x</name><arch>armv8</arch></os>
+      </activation>
+      <properties>
+        <javacpp.platform.macosx-arm64>macosx-arm64${javacpp.platform.extension}</javacpp.platform.macosx-arm64>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>javacpp.platform.custom-macosx-arm64</id>
+      <activation>
+        <property>
+          <name>javacpp.platform.host</name>
+        </property>
+        <os><name>mac os x</name><arch>arm64</arch></os>
+      </activation>
+      <properties>
+        <javacpp.platform.macosx-arm64>macosx-arm64${javacpp.platform.extension}</javacpp.platform.macosx-arm64>
       </properties>
     </profile>
 
